@@ -1,0 +1,134 @@
+<Window x:Class="DesfireManager.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+        Title="Bilgi / Info"
+        Width="680" Height="760"
+        MinWidth="560" MinHeight="520"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        ShowInTaskbar="False"
+        Background="{StaticResource AppBackground}"
+        Icon="Assets/app.png"
+        FontFamily="{StaticResource UiFont}"
+        TextOptions.TextFormattingMode="Display"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        KeyDown="Window_KeyDown">
+
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome CaptionHeight="0" ResizeBorderThickness="6"
+                            GlassFrameThickness="0" CornerRadius="0"
+                            UseAeroCaptionButtons="False" />
+    </shell:WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <Style x:Key="InfoH" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}" />
+            <Setter Property="Margin" Value="0,0,0,6" />
+        </Style>
+        <Style x:Key="InfoP" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12.5" />
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Margin" Value="0,0,0,4" />
+            <Setter Property="LineHeight" Value="18" />
+        </Style>
+        <Style x:Key="InfoCard" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource Surface}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderSoft}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="Padding" Value="16,14" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#0B121A" BorderBrush="{StaticResource BorderSoft}" BorderThickness="0,0,0,1">
+            <Grid Margin="16,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Background="Transparent" VerticalAlignment="Center"
+                            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                    <Image Source="Assets/app.png" Width="28" Height="28"
+                           RenderOptions.BitmapScalingMode="HighQuality" />
+                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="Bilgi / Info" FontSize="13.5" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimary}" />
+                        <TextBlock Text="Lisans, güvenlik ve sorumluluk / License, security &amp; liability"
+                                   FontSize="10.5" Margin="0,1,0,0" Foreground="{StaticResource TextMuted}" />
+                    </StackPanel>
+                </StackPanel>
+                <Button Grid.Column="1" Style="{StaticResource Button.TitleBarClose}"
+                        Content="&#xE8BB;" ToolTip="Kapat / Close" Click="CloseButton_Click"
+                        VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="24,20,20,10">
+            <StackPanel>
+
+                <Border Style="{StaticResource InfoCard}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource InfoH}" Text="Uygulama / Application" />
+                        <TextBlock Style="{StaticResource InfoP}" Text="DESFire Manager — PN5180 + ESP8266 ile DESFire EV2/EV3 kart hazırlama ve okuma aracı." />
+                        <TextBlock Style="{StaticResource InfoP}" Text="DESFire Manager — a tool to personalize and read DESFire EV2/EV3 cards with PN5180 + ESP8266." />
+                        <TextBlock Style="{StaticResource InfoP}" Margin="0,6,0,0" Text="Yapımcı / Author: Eren Çakıcı" />
+                        <TextBlock Style="{StaticResource InfoP}" Text="Copyright © 2026 Eren Çakıcı. Tüm hakları saklıdır / All rights reserved." />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource InfoCard}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource InfoH}" Text="Şifre Güvenliği / Password Security" />
+                        <TextBlock Style="{StaticResource InfoP}" Text="TR: Profillerdeki anahtarlar, Windows DPAPI (CurrentUser) ile bu bilgisayarda ve bu Windows kullanıcısına özel olarak şifrelenir. Şifreli profil dosyası (profiles.json) BAŞKA bir bilgisayarda veya başka bir kullanıcı hesabında ÇÖZÜLEMEZ. Dosyayı taşırsanız anahtarlar geri gelmez." />
+                        <TextBlock Style="{StaticResource InfoP}" Text="EN: Profile keys are encrypted with Windows DPAPI (CurrentUser), tied to THIS computer and THIS Windows user. The encrypted profiles.json CANNOT be decrypted on another computer or user account. Moving the file will not restore the keys." />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource InfoCard}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource InfoH}" Text="Anahtar Kaybı / Key Loss" />
+                        <TextBlock Style="{StaticResource InfoP}" Text="TR: Anahtarlar size aittir ve sorumluluğunuzdadır. Anahtarı kaybeder veya yanlış bir PICC master yazarsanız, kart KALICI olarak kilitlenir — geri dönüşü yoktur. Önemli işlemleri önce gözden çıkarabileceğiniz bir kartta deneyin." />
+                        <TextBlock Style="{StaticResource InfoP}" Text="EN: The keys are yours and your responsibility. If you lose a key or write a wrong PICC master, the card is PERMANENTLY bricked — there is no recovery. Test critical operations on a sacrificial card first." />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource InfoCard}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource InfoH}" Text="Şifre Saklama Önerileri / Password Storage Tips" />
+                        <TextBlock Style="{StaticResource InfoP}" Text="TR: • Bir şifre yöneticisi kullanın (Bitwarden, KeePass, 1Password).  • Anahtarların çevrimdışı, şifreli bir yedeğini ayrı bir yerde tutun.  • Anahtarları ASLA GitHub'a / sürüm kontrolüne koymayın.  • Üretim ortamında master anahtarları bir kasada veya HSM/SAM içinde saklayın.  • Her firma/müşteri için ayrı anahtar kullanın." />
+                        <TextBlock Style="{StaticResource InfoP}" Text="EN: • Use a password manager (Bitwarden, KeePass, 1Password).  • Keep an offline, encrypted backup of the keys in a separate place.  • NEVER commit keys to GitHub / version control.  • For production, keep master keys in a vault or an HSM/SAM.  • Use a separate key per company/customer." />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource InfoCard}" Background="#2A1418" BorderBrush="#6B2430">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource InfoH}" Foreground="#FCA5A5" Text="Sorumluluk Reddi / Disclaimer" />
+                        <TextBlock Style="{StaticResource InfoP}" Foreground="#FCA5A5" Text="TR: Bu yazılım 'olduğu gibi', hiçbir garanti olmadan sunulur. Yapımcı (Eren Çakıcı) hiçbir sorumluluk kabul etmez ve ortaya çıkabilecek hiçbir zarardan, veri kaybından, kilitlenen/çöp olan kartlardan veya dolaylı zararlardan sorumlu tutulamaz. Kullanım tamamen sizin riskinizdedir. Yalnızca size ait veya yetkili olduğunuz kartlarda kullanın." />
+                        <TextBlock Style="{StaticResource InfoP}" Foreground="#FCA5A5" Text="EN: This software is provided 'as is', without any warranty. The author (Eren Çakıcı) accepts no responsibility and shall not be held liable for any damages, data loss, bricked cards, or indirect damages whatsoever. Use is entirely at your own risk. Use only on cards you own or are authorized to use." />
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="#0B121A" BorderBrush="{StaticResource BorderSoft}"
+                BorderThickness="0,1,0,0" Padding="24,12">
+            <Button Content="Kapat / Close" Height="38" Width="140" HorizontalAlignment="Right"
+                    Style="{StaticResource Button.Ghost}" Click="CloseButton_Click" />
+        </Border>
+    </Grid>
+</Window>

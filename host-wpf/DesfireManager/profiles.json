@@ -1,0 +1,55 @@
+{
+  "profiles": [
+    {
+      "name": "TEST (AES, OSS-SO)",
+      "format": true,
+      "aid": "000001",
+      "algo": "aes",
+      "keyCount": 5,
+      "appMasterKeyHex": "00000000000000000000000000000000",
+      "newMasterKeyHex": "",
+      "piccMasterKeyHex": "",
+      "diversify": false,
+      "divMasterHex": "",
+      "piccChangeMode": "none",
+      "piccNewKeyHex": "",
+      "piccType": "des",
+      "files": [
+        {
+          "fileId": 0,
+          "size": 14,
+          "comm": 3,
+          "r": 3,
+          "w": 0,
+          "rw": 0,
+          "car": 0,
+          "rKey": "",
+          "wKey": "",
+          "rwKey": "",
+          "carKey": "",
+          "cardNumber": { "offset": 4, "byteLen": 10, "endian": "big" }
+        }
+      ]
+    },
+    {
+      "name": "TEST1 (AES, Plain)",
+      "format": true,
+      "aid": "000002",
+      "algo": "aes",
+      "keyCount": 5,
+      "appMasterKeyHex": "00000000000000000000000000000000",
+      "files": [
+        {
+          "fileId": 0,
+          "size": 16,
+          "comm": 0,
+          "r": 0,
+          "w": 0,
+          "rw": 0,
+          "car": 0,
+          "cardNumber": { "offset": 0, "byteLen": 8, "endian": "big" }
+        }
+      ]
+    }
+  ]
+}

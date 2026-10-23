@@ -1,0 +1,15 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+
+# Backups / scratch
+*.bak
+*.save
+*.orig
+
+# NOTE: host-wpf/DesfireManager/profiles.json ships with ZEROED placeholder
+# keys and is meant to be committed. NEVER commit a profiles.json that
+# contains real keys. The app keeps the working copy (with your keys,
+# DPAPI-encrypted) under %APPDATA%\DesfireManager, which is not in this repo.

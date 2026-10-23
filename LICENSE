@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Erencakici
+Copyright (c) 2026 Eren Çakıcı
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Note: The vendored PN5180 library under
+firmware/pn5180_desfire_firmware/src/pn5180lib is a patched copy of
+ATrappmann/PN5180-Library and is distributed under its own license; this
+MIT license does not apply to it.
